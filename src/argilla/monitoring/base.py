@@ -14,6 +14,7 @@
 
 import atexit
 import logging
+import secrets
 import threading
 from queue import Empty, Queue
 from typing import Any, Dict, Iterable, List, Optional
@@ -25,7 +26,6 @@ import wrapt
 from argilla.client.api import Api
 from argilla.client.models import Record
 from argilla.client.sdk.commons.errors import ArApiResponseError
-import secrets
 
 
 class ModelNotSupportedError(Exception):

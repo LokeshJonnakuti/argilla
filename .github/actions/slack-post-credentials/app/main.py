@@ -15,11 +15,11 @@
 import logging
 import os
 import re
+import secrets
 import string
 from typing import Any, Dict, Union
 
 from slack_sdk import WebClient
-import secrets
 
 SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN")
 GITHUB_REF = os.environ["GITHUB_REF"]
