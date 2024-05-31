@@ -1126,7 +1126,7 @@ class DatasetForTokenClassification(DatasetBase):
         new_features = ds.features.copy()
         new_features["ner_tags"] = datasets.Sequence(feature=class_tags)
         ds = ds.cast(new_features)
-        ds = ds.remove_columns(set(ds.column_names) - set(["id", "tokens", "ner_tags"]))
+        ds = ds.remove_columns(set(ds.column_names) - {"id", "tokens", "ner_tags"})
 
         if test_size is not None and test_size != 0:
             ds = ds.train_test_split(train_size=train_size, test_size=test_size, seed=seed)
