@@ -70,7 +70,7 @@ class RemoteRatingQuestion(RatingQuestion, RemoteSchema):
 
 
 def _parse_options_from_api(payload: "FeedbackQuestionModel") -> Union[List[str], Dict[str, str]]:
-    if all([label["value"] == label["text"] for label in payload.settings["options"]]):
+    if all(label["value"] == label["text"] for label in payload.settings["options"]):
         return [label["value"] for label in payload.settings["options"]]
     else:
         return {label["value"]: label["text"] for label in payload.settings["options"]}

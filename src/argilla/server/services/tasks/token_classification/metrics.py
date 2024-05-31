@@ -193,7 +193,7 @@ class TokenClassificationMetrics(CommonTasksMetrics[ServiceTokenClassificationRe
             return "LOWER"
         if value[0].isupper():
             return "FIRST"
-        if any([c.isupper() for c in value[1:]]):
+        if any(c.isupper() for c in value[1:]):
             return "MIDDLE"
         return None
 

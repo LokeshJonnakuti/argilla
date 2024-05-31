@@ -60,7 +60,7 @@ class ArgillaOpenAITrainer(ArgillaTrainerSkeleton):
             self._model = "gpt-3.5-turbo"
             self._logger.warning(f"No model defined. Using the default model {self._model}.")
 
-        if any([self._model in model for model in OPENAI_LEGACY_MODELS]):
+        if any(self._model in model for model in OPENAI_LEGACY_MODELS):
             self._logger.warning(
                 "Using the OpenAI legacy mnodels within the Trainer, please use a newer model and take a look here https://platform.openai.com/docs/guides/legacy-fine-tuning.append()"
             )

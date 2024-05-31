@@ -435,7 +435,7 @@ class DatasetBase:
         assert (train_size + test_size) == 1, ValueError("`train_size` and `test_size` must sum to 1.")
 
         # check for annotations
-        assert any([rec.annotation for rec in self._records]), ValueError("Dataset has no annotations.")
+        assert any(rec.annotation for rec in self._records), ValueError("Dataset has no annotations.")
 
         if test_size == 0:
             test_size = None

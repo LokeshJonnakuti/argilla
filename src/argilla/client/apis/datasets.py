@@ -211,7 +211,7 @@ class Datasets(AbstractApi):
         if sort is not None:
             try:
                 if isinstance(sort, list):
-                    assert all([(isinstance(item, tuple)) and (item[-1] in ["asc", "desc"]) for item in sort])
+                    assert all((isinstance(item, tuple)) and (item[-1] in ["asc", "desc"]) for item in sort)
                 else:
                     raise Exception()
             except Exception:

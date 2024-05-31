@@ -204,7 +204,7 @@ class ServiceTextClassificationRecord(ServiceBaseRecord[TextClassificationAnnota
 
         """
         if prediction and not multi_label:
-            assert sum([label.score for label in prediction.labels]) <= (
+            assert sum(label.score for label in prediction.labels) <= (
                 1.0 + cls._SCORE_DEVIATION_ERROR
             ), f"Wrong score distributions: {prediction.labels}"
 
