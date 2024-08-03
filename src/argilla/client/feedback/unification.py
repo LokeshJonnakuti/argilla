@@ -12,7 +12,6 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-import random
 from abc import abstractmethod
 from collections import Counter
 from enum import Enum
@@ -29,6 +28,7 @@ from argilla.client.feedback.schemas import (
     RatingQuestion,
     ValueSchema,
 )
+import secrets
 
 
 class UnifiedValueSchema(ValueSchema):
@@ -160,7 +160,7 @@ class RatingQuestionStrategy(RatingQuestionStrategyMixin, Enum):
             # Get a list of values with the maximum count
             most_common_values = [value for value, count in counter.items() if count == max_count]
             if len(most_common_values) > 1:
-                majority_value = random.choice(most_common_values)
+                majority_value = secrets.choice(most_common_values)
             else:
                 majority_value = counter.most_common(1)[0][0]
             rec._unified_responses[question] = [UnifiedValueSchema(value=majority_value, strategy=self.value)]
@@ -299,7 +299,7 @@ class RankingQuestionStrategy(RatingQuestionStrategyMixin, Enum):
             # Get a list of values with the minimum count
             least_common_values = [value for value, count in counter.items() if count == min_count]
             if len(least_common_values) > 1:
-                majority_value = random.choice(least_common_values)
+                majority_value = secrets.choice(least_common_values)
             else:
                 majority_value = counter.most_common()[-1][0]
             rec._unified_responses[question] = [UnifiedValueSchema(value=majority_value, strategy=self.value)]
@@ -429,7 +429,7 @@ class LabelQuestionStrategy(LabelQuestionStrategyMixin, Enum):
             # Get a list of values with the maximum count
             most_common_values = [value for value, count in counter.items() if count == max_count]
             if len(most_common_values) > 1:
-                majority_value = random.choice(most_common_values)
+                majority_value = secrets.choice(most_common_values)
             else:
                 majority_value = counter.most_common(1)[0][0]
 
