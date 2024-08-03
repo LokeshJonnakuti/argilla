@@ -12,6 +12,7 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+import secrets
 from abc import abstractmethod
 from collections import Counter
 from enum import Enum
@@ -28,7 +29,6 @@ from argilla.client.feedback.schemas import (
     RatingQuestion,
     ValueSchema,
 )
-import secrets
 
 
 class UnifiedValueSchema(ValueSchema):

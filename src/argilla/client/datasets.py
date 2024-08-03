@@ -12,6 +12,7 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
+import secrets
 import uuid
 import warnings
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple, Type, Union
@@ -31,7 +32,6 @@ from argilla.client.models import (
 from argilla.client.sdk.datasets.models import TaskType
 from argilla.utils.dependency import require_dependencies, requires_dependencies
 from argilla.utils.span_utils import SpanUtils
-import secrets
 
 if TYPE_CHECKING:
     import datasets
